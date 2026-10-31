@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CRM Telesales - prezentare de proiect web realizat pentru portofoliul MP Creative Studio.">
+<title>CRM Telesales | MP Creative Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#171128;
+  --purple:#6c4bc3;
+  --lilac:#b9a4f3;
+  --light:#f7f5fc;
+  --text:#28223a;
+  --muted:#716c7e;
+  --border:#e9e4f2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"DM Sans",sans-serif;color:var(--text);background:white}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+.container{width:min(1160px,92%);margin:auto}
+.topbar{background:var(--dark);color:#d7cafa;text-align:center;padding:10px;font-size:12px;letter-spacing:1.5px}
+header{background:white;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:19px 0}
+.logo{font-family:"Plus Jakarta Sans",sans-serif;font-size:21px;font-weight:800;letter-spacing:-.8px}
+.logo span{color:var(--purple)}
+nav{display:flex;align-items:center;gap:25px;font-size:13px;font-weight:700}
+nav a:hover{color:var(--purple)}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;background:var(--purple);color:white;border:0;border-radius:10px;padding:15px 23px;font-weight:800;font-size:13px;transition:.2s}
+.btn:hover{background:#5738a9;transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1px solid #ffffff50}
+.btn-outline:hover{background:#ffffff15}
+.hero{background:radial-gradient(circle at 75% 30%,#49317e 0%,var(--dark) 55%);color:white;overflow:hidden;padding:95px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:55px}
+.eyebrow{color:var(--lilac);text-transform:uppercase;letter-spacing:2.5px;font-size:12px;font-weight:800}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{font-family:"Plus Jakarta Sans",sans-serif}
+h1{font-size:clamp(38px,5vw,66px);line-height:1.12;letter-spacing:-2px;margin:20px 0}
+h1 span{color:var(--lilac)}
+.hero p{color:#d2c9e5;line-height:1.9;max-width:530px;font-size:15px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.hero-tags span{font-size:11px;border:1px solid #ffffff35;padding:9px 12px;border-radius:30px;color:#e7dff8}
+.mockup{background:#ffffff;border:8px solid #ffffff25;border-radius:19px;box-shadow:0 30px 70px #0005;overflow:hidden;color:var(--text);transform:perspective(1000px) rotateY(-5deg)}
+.mockup-bar{background:#f0edf8;padding:12px 15px;display:flex;align-items:center;gap:7px}
+.dot{width:9px;height:9px;border-radius:50%;background:#c8bfdc}
+.dot:first-child{background:#e998a7}
+.dot:nth-child(2){background:#f0c77b}
+.dot:nth-child(3){background:#8ccdb4}
+.mockup-body{display:grid;grid-template-columns:110px 1fr;min-height:300px}
+.mockup-side{background:#231a3b;padding:20px 10px;color:#cbbce8;font-size:10px}
+.mockup-side strong{display:block;color:white;font-size:13px;margin-bottom:22px}
+.mockup-side div{padding:9px 4px}
+.mockup-side .active{background:#6c4bc3;border-radius:5px;color:white}
+.mockup-main{padding:19px;background:#fbfaff}
+.mockup-main h4{margin:0 0 17px;font-size:14px}
+.mockup-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.mockup-card{border:1px solid #e8e4f0;background:white;padding:12px;border-radius:8px}
+.mockup-card small{display:block;font-size:9px;color:#888}
+.mockup-card strong{font-size:22px;color:var(--purple)}
+.mockup-table{background:white;border:1px solid #e8e4f0;border-radius:8px;margin-top:13px;padding:12px}
+.mockup-row{display:flex;justify-content:space-between;border-bottom:1px solid #f0edf6;padding:9px 0;font-size:10px;color:#777}
+.mockup-row:last-child{border:0}
+.mockup-pill{background:#eee8fc;color:#684ab6;border-radius:20px;padding:3px 7px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:37px 0}
+.stat{text-align:center}
+.stat strong{display:block;font-size:18px;color:var(--purple)}
+.stat span{font-size:12px;color:var(--muted)}
+section{padding:85px 0}
+.section-heading{text-align:center;max-width:740px;margin:0 auto 45px}
+.section-heading .eyebrow{color:var(--purple)}
+.section-heading h2{font-size:clamp(30px,4vw,45px);letter-spacing:-1.5px;margin:15px 0}
+.section-heading p{color:var(--muted);line-height:1.8}
+.features{background:var(--light)}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature{background:white;border:1px solid var(--border);padding:28px;border-radius:16px;transition:.2s}
+.feature:hover{transform:translateY(-4px);box-shadow:0 15px 30px #28194a0b}
+.feature-icon{width:55px;height:55px;display:grid;place-items:center;background:#f0eafd;border-radius:13px;font-size:25px;margin-bottom:20px}
+.feature h3{font-size:18px;margin-bottom:10px}
+.feature p{font-size:13px;color:var(--muted);line-height:1.8;margin:0}
+.showcase{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.showcase h2{font-size:42px;letter-spacing:-1.5px;margin:15px 0}
+.showcase p{line-height:1.9;color:var(--muted)}
+.checks{padding:0;list-style:none}
+.checks li{padding:11px 0;font-weight:600;font-size:14px}
+.checks li::before{content:"✓";color:var(--purple);margin-right:12px}
+.preview{border:1px solid var(--border);border-radius:20px;padding:23px;background:linear-gradient(145deg,#faf8ff,#eee9fb)}
+.preview-window{background:white;border:1px solid var(--border);border-radius:13px;padding:22px;box-shadow:0 20px 40px #29164d15}
+.preview-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.preview-title strong{font-size:15px}
+.preview-title span{font-size:10px;background:#e8f5ee;color:#2a8451;padding:6px 9px;border-radius:20px}
+.preview-head{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:8px;background:#f5f2fb;padding:12px;font-size:10px;font-weight:800;border-radius:7px}
+.preview-line{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:8px;padding:13px 12px;border-bottom:1px solid #eeeaf5;font-size:10px}
+.preview-line:last-child{border:0}
+.tech{background:var(--dark);color:white}
+.tech .section-heading p{color:#c5bbd7}
+.tech-grid{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.tech-item{background:#ffffff0d;border:1px solid #ffffff25;border-radius:12px;padding:19px 25px;font-size:14px;font-weight:800}
+.cta{background:linear-gradient(120deg,#6c4bc3,#432b80);color:white;text-align:center}
+.cta h2{font-size:43px;letter-spacing:-1px}
+.cta p{color:#e7def8;line-height:1.8;max-width:650px;margin:0 auto 25px}
+.cta .btn{background:white;color:var(--purple)}
+.cta .btn:hover{background:#f1eafb}
+.security{font-size:12px;color:#e5dafa;margin-top:18px}
+footer{background:#151023;color:white;padding:45px 0;text-align:center}
+footer p{font-size:12px;color:#aea3c2;margin:12px 0}
+footer .logo{color:white}
+@media(max-width:900px){
+ .hero-grid,.showcase{grid-template-columns:1fr}
+ .mockup{max-width:600px;transform:none}
+ .feature-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+ nav{display:none}
+ .hero{padding:65px 0}
+ .hero-grid{gap:35px}
+ .mockup-body{grid-template-columns:85px 1fr}
+ .mockup-side{font-size:8px;padding:12px 5px}
+ .mockup-main{padding:12px}
+ .mockup-card strong{font-size:17px}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .feature-grid{grid-template-columns:1fr}
+ section{padding:55px 0}
+ .showcase h2,.cta h2{font-size:32px}
+ .preview{padding:12px}
+ .preview-window{padding:12px}
+ .tech-item{padding:13px 18px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  MP CREATIVE STUDIO · WEB APPLICATION PORTFOLIO
+</div>
+
+<header>
+  <div class="container header-inner">
+    <a href="#acasa" class="logo">CRM <span>TELESALES</span></a>
+    <nav>
+      <a href="#despre">Despre proiect</a>
+      <a href="#functionalitati">Funcționalități</a>
+      <a href="#tehnologii">Tehnologii</a>
+      <a href="#aplicatie">Aplicație</a>
+    </nav>
+    <a href="#aplicatie" class="btn">VEZI PROIECTUL →</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="acasa">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Web Application · CRM System</div>
+      <h1>Un CRM creat pentru <span>echipe de vânzări.</span></h1>
+      <p>
+        Platformă web pentru organizarea activității de telesales:
+        clienți, comenzi, agenți, pachete promoționale, apeluri,
+        pontaj și rapoarte într-un singur sistem.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn" href="#functionalitati">EXPLOREAZĂ FUNCȚIILE →</a>
+        <a class="btn btn-outline" href="#despre">DESPRE PROIECT</a>
+      </div>
+      <div class="hero-tags">
+        <span>CRM Management</span>
+        <span>Responsive Web App</span>
+        <span>Admin & Agent Roles</span>
+      </div>
+    </div>
+
+    <div class="mockup" aria-label="Ilustrație demonstrativă a interfeței CRM">
+      <div class="mockup-bar">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-side">
+          <strong>CRM</strong>
+          <div class="active">▦ Dashboard</div>
+          <div>♙ Clienți</div>
+          <div>▤ Comenzi</div>
+          <div>◈ Pachete</div>
+          <div>◷ Apeluri</div>
+          <div>▥ Rapoarte</div>
+        </div>
+        <div class="mockup-main">
+          <h4>Rezumat CRM · Demo</h4>
+          <div class="mockup-cards">
+            <div class="mockup-card">
+              <small>Clienți</small>
+              <strong>—</strong>
+            </div>
+            <div class="mockup-card">
+              <small>Comenzi</small>
+              <strong>—</strong>
+            </div>
+            <div class="mockup-card">
+              <small>Agenți</small>
+              <strong>—</strong>
+            </div>
+            <div class="mockup-card">
+              <small>Rapoarte</small>
+              <strong>—</strong>
+            </div>
+          </div>
+          <div class="mockup-table">
+            <div class="mockup-row">
+              <strong>Module CRM</strong>
+              <strong>Acces</strong>
+            </div>
+            <div class="mockup-row">
+              <span>Gestionare clienți</span>
+              <span class="mockup-pill">Modul</span>
+            </div>
+            <div class="mockup-row">
+              <span>Gestionare comenzi</span>
+              <span class="mockup-pill">Modul</span>
+            </div>
+            <div class="mockup-row">
+              <span>Monitorizare activitate</span>
+              <span class="mockup-pill">Modul</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container stats">
+  <div class="stat">
+    <strong>CRM</strong>
+    <span>Management clienți</span>
+  </div>
+  <div class="stat">
+    <strong>ORDERS</strong>
+    <span>Administrare comenzi</span>
+  </div>
+  <div class="stat">
+    <strong>TEAM</strong>
+    <span>Gestionare agenți</span>
+  </div>
+  <div class="stat">
+    <strong>REPORTS</strong>
+    <span>Monitorizare performanță</span>
+  </div>
+</div>
+
+<section class="features" id="functionalitati">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Funcționalități principale</div>
+      <h2>Tot ce are nevoie o echipă de telesales</h2>
+      <p>
+        O interfață centralizată pentru organizarea proceselor
+        de vânzare și administrarea activității zilnice.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature">
+        <div class="feature-icon">👥</div>
+        <h3>Gestionare clienți</h3>
+        <p>Evidența clienților, căutare, filtrare, repartizare către agenți și actualizarea statusurilor.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">🛒</div>
+        <h3>Administrare comenzi</h3>
+        <p>Înregistrarea și urmărirea comenzilor, asocierea cu clienți și pachete promoționale.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">📦</div>
+        <h3>Pachete promoționale</h3>
+        <p>Organizarea ofertelor comerciale, produselor și prețurilor într-un catalog dedicat.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">🎧</div>
+        <h3>Istoric apeluri</h3>
+        <p>Secțiune pentru evidența interacțiunilor telefonice și activitatea agenților.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">⏱</div>
+        <h3>Pontaj și pauze</h3>
+        <p>Gestionarea sesiunilor de lucru, a programului și a pauzelor echipei.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">📊</div>
+        <h3>Rapoarte și obiective</h3>
+        <p>Instrumente pentru urmărirea activității, a obiectivelor și a rezultatelor.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">🏬</div>
+        <h3>Stocuri și inventar</h3>
+        <p>Module pentru evidența produselor, inventarului și mișcărilor de stoc.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3>Expedieri și retururi</h3>
+        <p>Secțiuni pentru gestionarea fluxului comenzilor, expedierilor și retururilor.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">🔐</div>
+        <h3>Conturi și roluri</h3>
+        <p>Autentificare pentru administratori și agenți, cu separarea accesului în funcție de rol.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="despre">
+  <div class="container showcase">
+    <div>
+      <div class="eyebrow" style="color:var(--purple)">Despre aplicație</div>
+      <h2>Organizare inteligentă. Control într-un singur loc.</h2>
+      <p>
+        CRM TELESALES este o aplicație web dezvoltată pentru a reuni
+        activitățile esențiale ale unei echipe de vânzări într-o
+        interfață accesibilă de pe laptop și telefon.
+      </p>
+      <ul class="checks">
+        <li>Dashboard centralizat</li>
+        <li>Administrare clienți și comenzi</li>
+        <li>Gestionare agenți și activitate</li>
+        <li>Module de stocuri și expedieri</li>
+        <li>Autentificare și roluri separate</li>
+      </ul>
+    </div>
+
+    <div class="preview">
+      <div class="preview-window">
+        <div class="preview-title">
+          <strong>Clienți · Interfață demonstrativă</strong>
+          <span>PREVIEW</span>
+        </div>
+        <div class="preview-head">
+          <span>CLIENT</span>
+          <span>STATUS</span>
+          <span>AGENT</span>
+        </div>
+        <div class="preview-line">
+          <span>Client Demo A</span>
+          <span>Nou</span>
+          <span>Agent 01</span>
+        </div>
+        <div class="preview-line">
+          <span>Client Demo B</span>
+          <span>Contactat</span>
+          <span>Agent 02</span>
+        </div>
+        <div class="preview-line">
+          <span>Client Demo C</span>
+          <span>Confirmat</span>
+          <span>Agent 01</span>
+        </div>
+        <div class="preview-line">
+          <span>Client Demo D</span>
+          <span>În așteptare</span>
+          <span>Agent 03</span>
+        </div>
+        <p style="font-size:11px;color:#857d92;margin:18px 0 0">
+          Date fictive utilizate exclusiv pentru ilustrarea interfeței.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tech" id="tehnologii">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Tehnologii utilizate</div>
+      <h2>Construit pentru mediul web</h2>
+      <p>
+        Tehnologii și servicii folosite în dezvoltarea
+        și administrarea proiectului.
+      </p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-item">Supabase</div>
+      <div class="tech-item">PostgreSQL</div>
+      <div class="tech-item">GitHub</div>
+      <div class="tech-item">Cloudflare Workers</div>
+      <div class="tech-item">Web Application</div>
+      <div class="tech-item">Responsive Design</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="aplicatie">
+  <div class="container">
+    <div class="eyebrow">Proiect de portofoliu</div>
+    <h2>CRM TELESALES</h2>
+    <p>
+      Aplicație web pentru managementul vânzărilor și al echipelor.
+      Platforma originală este protejată prin autentificare,
+      iar această pagină prezintă proiectul fără expunerea
+      informațiilor private.
+    </p>
+    <a class="btn" href="https://crm-telesales.mhldmtr.workers.dev/"
+       target="_blank" rel="noopener noreferrer">
+      DESCHIDE PAGINA DE AUTENTIFICARE →
+    </a>
+    <div class="security">
+      Accesul la aplicație necesită un cont autorizat.
+      Nu sunt furnizate date de autentificare demonstrative.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="logo">MP <span>CREATIVE STUDIO</span></div>
+    <p>CRM TELESALES · Web Application Portfolio Showcase</p>
+    <p>© 2026 MP Creative Studio · Toate drepturile rezervate.</p>
+  </div>
+</footer>
+
+</body>
+</html>
